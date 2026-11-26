@@ -1,0 +1,10 @@
+.env
+docs/
+*.pdf
+*.png
+tmp_*
+.venv/
+__pycache__/
+.neon
+node_modules/
+.neon
