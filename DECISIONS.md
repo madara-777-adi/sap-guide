@@ -97,3 +97,12 @@ I write about 15 real test questions with the correct source page for each befor
 ## Later (not now)
 
 - Bot-management platform: bots as configurations (documents, model, key, instructions), several bots per business, per-bot knowledge isolation enforced on the server, encrypted API keys, a fixed provider dropdown instead of free-form URLs to avoid SSRF. SAP Guide could become bot #1.
+
+### 14. Embedding model: bge-small-en-v1.5 via fastembed
+Status: decided, provisional until the 15-question test
+Vector size 384. Chosen for privacy (text stays local), no rate limits, small size (67 MB).
+Experiment: related pair 0.717, unrelated 0.478, "MIRO" vs "invoice verification" 0.522.
+Finding: separates meaning from noise, weak on SAP jargon.
+Mitigation: put T-code and plain-English name in chunk text, store T-code in its own column,
+add keyword search later only if the test questions show misses.
+To check: query vs passage embedding, Render memory and cold-start time, model cache location.
