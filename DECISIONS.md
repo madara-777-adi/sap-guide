@@ -113,3 +113,26 @@ Eval (5 chunks, 11 answerable + unanswerable questions): rank-1 10/11, top-3 11/
 Answerable top scores 0.607 to 0.712 avg, unanswerable up to 0.702: ranges overlap, so no single similarity cut-off can decide "not found".
 Weak spot: a single rule inside a chunk about other topics (question 10) ranked third.
 Limits: tiny corpus, questions written by the document's author.
+
+### 16. NVIDIA Nemotron 3.5 embed/rerank: evaluate later, don't adopt now
+Status: deferred
+Hosted versions are a Preview API (may change or end). Embed 1B outputs 2048 dims, 8B 4096; table is vector(384).
+Switching requires a schema change and full re-embed. Text would also leave our environment.
+Plan: after the second fictional document and harder questions exist, compare in a script
+(no DB changes), and test the reranker on top-10 results. Adopt only if it wins on our eval.
+
+### 17. LLM provider: Groq only
+Status: decided
+Primary openai/gpt-oss-120b, fallback openai/gpt-oss-20b (separate per-model limits).
+NVIDIA NIM dropped for now (decision 16 covers embed/rerank evaluation later).
+Limits verified on own console Limits page (2026-11-26): gpt-oss-120b, gpt-oss-20b and qwen/qwen3.8-27b
+each 30 RPM, 1K RPD, 8K TPM, 200K TPD. Qwen is a preview model: experiments only.
+allam-2-7b also allowed (30 RPM, 7K RPD, 6K TPM, 500K TPD) but not used: believed Arabic-focused, unverified.
+
+### 18. Gemini: not used for now
+Status: deferred
+Free tier is free without a card, but content is used to improve Google products,
+so it would only ever see sample documents. Groq stays the only provider (decision 17).
+Possible later: Gemini as an optional fallback for sample data only, via the OpenAI-compatible endpoint.
+Before any real document: read Groq's data-retention/training terms and get supervisor approval.
+

@@ -62,11 +62,11 @@ def test_ask_requires_login(client):
     assert response.status_code == 401
 
 
-def test_ask_works_after_login(client):
+def test_ask_works_after_login(client, monkeypatch):
+    monkeypatch.setattr("app.routes.answer_question", lambda q: {"answer": "ok", "sources": []})
     login(client)
     response = client.post("/ask", json={"question": "How do I post an invoice?"})
     assert response.status_code == 200
-
 
 def test_garbage_cookie_is_rejected(client):
     response = client.post(
