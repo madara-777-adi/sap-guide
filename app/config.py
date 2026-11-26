@@ -1,5 +1,6 @@
 import os
 from dataclasses import dataclass
+from functools import lru_cache
 
 REQUIRED_VARS = ("APP_USERNAME", "APP_PASSWORD_HASH", "SESSION_SECRET")
 MIN_SECRET_LENGTH = 32
@@ -27,3 +28,8 @@ def load_settings() -> Settings:
         password_hash=os.environ["APP_PASSWORD_HASH"],
         session_secret=secret,
     )
+
+@lru_cache
+def get_settings() -> Settings:
+    """Load settings once and reuse them. Tests replace this via dependency_overrides."""
+    return load_settings()
