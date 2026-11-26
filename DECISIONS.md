@@ -106,3 +106,10 @@ Finding: separates meaning from noise, weak on SAP jargon.
 Mitigation: put T-code and plain-English name in chunk text, store T-code in its own column,
 add keyword search later only if the test questions show misses.
 To check: query vs passage embedding, Render memory and cold-start time, model cache location.
+
+### 15. Retrieval: plain query, no BGE prefix; "not found" handled by the prompt
+Status: decided, revisit with a larger corpus
+Eval (5 chunks, 11 answerable + unanswerable questions): rank-1 10/11, top-3 11/11, same with and without prefix.
+Answerable top scores 0.607 to 0.712 avg, unanswerable up to 0.702: ranges overlap, so no single similarity cut-off can decide "not found".
+Weak spot: a single rule inside a chunk about other topics (question 10) ranked third.
+Limits: tiny corpus, questions written by the document's author.
