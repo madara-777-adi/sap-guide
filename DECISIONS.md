@@ -136,3 +136,20 @@ so it would only ever see sample documents. Groq stays the only provider (decisi
 Possible later: Gemini as an optional fallback for sample data only, via the OpenAI-compatible endpoint.
 Before any real document: read Groq's data-retention/training terms and get supervisor approval.
 
+Lint: ruff. The blanket except in the LLM fallback is intentional (noqa with a reason). FastAPI Depends marked immutable in ruff.toml.
+
+### 19. Answer evaluation, first results (15 questions, fictional notes)
+Status: provisional
+openai/gpt-oss-120b, two runs: 11/11 answerable pass all checks (fact, page citation, format, supervisor note);
+refusals 4/4 and 3/4. The 3/4 was an APITimeoutError (30s limit), not a wrong answer.
+Caveats: the two runs overlapped and shared the per-minute token limit; only 5 chunks exist, so the model
+sees most of the document every time; keyword checks are proxies; I wrote the questions with the document.
+Changes: eval retries timeouts and rate limits; app timeout 30s -> 20s.
+Next: a second fictional document and questions written by someone else.
+
+### 20. Answer evaluation: openai/gpt-oss-20b (15 questions, fictional notes)
+Status: provisional
+11/11 answerable pass fact, page and refusal checks; 4/4 correct refusals; no errors.
+format_ok 9/11: citation written inline in brackets instead of a "Source:" line.
+Check kept strict on purpose. Prompt tweak: example without brackets, "always end with a Source line".
+Order stays groq-120b, groq-20b. Same caveats as decision 19 (tiny corpus, author-written questions).

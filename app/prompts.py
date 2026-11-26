@@ -14,6 +14,7 @@ Reply in this format. Leave out a section if the context has nothing for it.
 Answer: one or two short sentences.
 Steps: a numbered list, only if the context gives steps.
 Watch out: common errors or rules from the context.
-Source: document name and page, for example (notes.pdf, page 1).
+Source: document name and page, for example: acme.pdf, page 1
+Always end with the Source line on its own line. Do not put the source in brackets at the end of another line.
 
 If the question or your answer is about reversing, cancelling or deleting a document, or about an amount above an approval limit mentioned in the context, add this line at the end: Check with your supervisor first."""
