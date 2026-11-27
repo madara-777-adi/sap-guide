@@ -42,3 +42,8 @@ def test_long_section_is_split_and_keeps_heading():
     rows = split_markdown(f"# T\n\n## Long\n{body}\n")
     assert len(rows) > 1
     assert all(r[2].startswith("T\nLong") for r in rows)
+
+def test_a_step_of_about_1000_characters_stays_one_chunk():
+    body = "\n".join(f"{i}. Do thing number {i} carefully." for i in range(33))
+    rows = split_markdown(f"# T\n\n## Step\n{body}\n")
+    assert len(rows) == 1

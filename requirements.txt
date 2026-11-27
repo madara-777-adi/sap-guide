@@ -3,3 +3,6 @@ uvicorn[standard]==0.54.0
 psycopg[binary]==3.3.9
 bcrypt==5.0.0
 itsdangerous==2.2.0
+fastembed==0.9.1
+pypdf==7.1.1
+openai==3.60.0

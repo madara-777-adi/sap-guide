@@ -8,3 +8,5 @@ __pycache__/
 .neon
 node_modules/
 .neon
+!tests/fixtures/*.pdf
+eval/results/

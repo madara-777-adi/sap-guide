@@ -3,7 +3,7 @@ import re
 from app.chunking import chunk_text
 
 T_CODE_RE = re.compile(r"T-code:?\s+([A-Z][A-Z0-9]{3,9})\b")
-BODY_SIZE = 700  # leaves room for the heading lines added to every chunk
+BODY_SIZE = 1200  # leaves room for the heading lines added to every chunk
 
 
 def find_t_code(*texts: str) -> str | None:

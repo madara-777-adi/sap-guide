@@ -1,0 +1,34 @@
+{"id": 1, "question": "How do I create an inter-company STO?", "answerable": true, "expected": [["sto_invoice_process.md", 2]], "keywords": ["ME21N", "ZNB"]}
+{"id": 2, "question": "Which order type do I pick in ME21N for a stock transfer?", "answerable": true, "expected": [["sto_invoice_process.md", 2]], "keywords": ["ZNB"]}
+{"id": 3, "question": "What should I check before saving the STO?", "answerable": true, "expected": [["sto_invoice_process.md", 2], ["sto_invoice_process.md", 17]], "keywords": ["net price", "depot"]}
+{"id": 4, "question": "How do I make a delivery from an STO?", "answerable": true, "expected": [["sto_invoice_process.md", 3]], "keywords": ["VL10B"]}
+{"id": 5, "question": "Where do I find the OBD number after running VL10B?", "answerable": true, "expected": [["sto_invoice_process.md", 3]], "keywords": ["Show/Hide delivery", "10 digits"]}
+{"id": 6, "question": "my delivery is stuck at Not yet picked, what do i do", "answerable": true, "expected": [["sto_invoice_process.md", 4]], "keywords": ["Batch Split", "Fully picked"]}
+{"id": 7, "question": "batch split kaise karte hain delivery me", "answerable": true, "expected": [["sto_invoice_process.md", 4]], "keywords": ["Batch Split", "Picked Qty"]}
+{"id": 8, "question": "truk entry steps", "answerable": true, "expected": [["sto_invoice_process.md", 5]], "keywords": ["YMM17"]}
+{"id": 9, "question": "Do I choose Empty or Loaded in truck entry?", "answerable": true, "expected": [["sto_invoice_process.md", 5]], "keywords": ["EMPTY"]}
+{"id": 10, "question": "What do I type for warehouse number in truck entry for my plant?", "answerable": true, "expected": [["sto_invoice_process.md", 5], ["sto_invoice_process.md", 1]], "keywords": ["261"]}
+{"id": 11, "question": "Who creates the shipment and what details do I send them?", "answerable": true, "expected": [["sto_invoice_process.md", 6]], "keywords": ["truck type", "transporter"]}
+{"id": 12, "question": "I got the shipment number. What do I check in it?", "answerable": true, "expected": [["sto_invoice_process.md", 7]], "keywords": ["forwarding agent", "route"]}
+{"id": 13, "question": "How do I complete the shipment?", "answerable": true, "expected": [["sto_invoice_process.md", 8]], "keywords": ["Check-in", "Shipment end"]}
+{"id": 14, "question": "Where do I enter the LR number?", "answerable": true, "expected": [["sto_invoice_process.md", 8]], "keywords": ["Ext ID"]}
+{"id": 15, "question": "How do I open the document flow?", "answerable": true, "expected": [["sto_invoice_process.md", 9], ["sto_invoice_process.md", 11], ["sto_invoice_process.md", 4]], "keywords": ["Document flow", "F7"]}
+{"id": 16, "question": "Which billing type do I use for the STO invoice?", "answerable": true, "expected": [["sto_invoice_process.md", 10]], "keywords": ["ZS27"]}
+{"id": 17, "question": "The billing net value does not match the 2P invoice. What now?", "answerable": false, "expected": []}
+{"id": 18, "question": "SAP invoice number kahan milega STO ka", "answerable": true, "expected": [["sto_invoice_process.md", 10], ["sto_invoice_process.md", 11]], "keywords": ["document flow"]}
+{"id": 19, "question": "Which T-code is for eway bill upload?", "answerable": true, "expected": [["sto_invoice_process.md", 13]], "keywords": ["YH3SD030"]}
+{"id": 20, "question": "YH3SD022?", "answerable": true, "expected": [["sto_invoice_process.md", 14], ["sto_invoice_process.md", 1]], "keywords": ["GST"]}
+{"id": 21, "question": "VT02N", "answerable": true, "expected": [["sto_invoice_process.md", 7], ["sto_invoice_process.md", 8]], "keywords": ["shipment"]}
+{"id": 22, "question": "How do I do QC clearance with movement type 921?", "answerable": true, "expected": [["production_booking_qc_clearance.md", 3]], "keywords": ["921", "4001"]}
+{"id": 23, "question": "how to move stock from 4001 to 0001", "answerable": true, "expected": [["production_booking_qc_clearance.md", 4]], "keywords": ["311", "0001"]}
+{"id": 24, "question": "How do I check the stock is ready for despatch?", "answerable": true, "expected": [["production_booking_qc_clearance.md", 5]], "keywords": ["MMBE"]}
+{"id": 25, "question": "What is storage location 0001?", "answerable": true, "expected": [["production_booking_qc_clearance.md", 1], ["production_booking_qc_clearance.md", 4]], "keywords": ["despatch"]}
+{"id": 26, "question": "A menu does not open. Any key I should press?", "answerable": true, "expected": [["sto_invoice_process.md", 16], ["sto_invoice_process.md", 10], ["production_booking_qc_clearance.md", 6]], "keywords": ["F7"]}
+{"id": 27, "question": "How do I post goods issue for the delivery?", "answerable": false, "expected": []}
+{"id": 28, "question": "How do I cancel or reverse an STO?", "answerable": false, "expected": []}
+{"id": 29, "question": "What do I do if there is not enough stock in 0001 for picking?", "answerable": false, "expected": []}
+{"id": 30, "question": "How do I change the truck number after saving the truck entry?", "answerable": false, "expected": []}
+{"id": 31, "question": "How do I create a sales order in VA01?", "answerable": false, "expected": []}
+{"id": 32, "question": "How do I print the delivery challan?", "answerable": false, "expected": []}
+{"id": 33, "question": "What is the GST rate on noodles?", "answerable": false, "expected": []}
+{"id": 34, "question": "What time does the canteen open?", "answerable": false, "expected": []}

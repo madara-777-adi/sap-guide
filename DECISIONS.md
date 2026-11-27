@@ -166,3 +166,13 @@ Plain: top1 20, top3 24, top5 24 of 25. Prefix: top1 20, top3 22, top5 25.
 Prefix fixed 2 questions and broke 2, so it stays off. TOP_K 5 gives no gain over 3 on plain.
 Remaining miss ("check before saving") fixed by wording the step the way I ask it, not by tuning search.
 Caveat: questions were written from the documents; re-measure with questions I really type.
+
+### 23. Known miss: "check before saving the STO"
+Status: being fixed
+Rewording Step 1 did not help. After re-ingest the bot answered about saving the delivery (section 4)
+and added a consequence the document does not state. A wrong answer is worse than a refusal.
+Fixes: one chunk per step (decision 25), and a prompt rule to refuse when the context is about a different thing.
+
+### 25. Chunking for Markdown: one step = one chunk
+Status: provisional, measure with eval_real
+BODY_SIZE 1200 so no step is split. Risk: bigger chunks dilute the match.
