@@ -153,3 +153,16 @@ Status: provisional
 format_ok 9/11: citation written inline in brackets instead of a "Source:" line.
 Check kept strict on purpose. Prompt tweak: example without brackets, "always end with a Source line".
 Order stays groq-120b, groq-20b. Same caveats as decision 19 (tiny corpus, author-written questions).
+
+### 21. Shorter process title in Markdown chunks
+Status: decided, retrieval still being tuned
+The long title repeated in every chunk blurred the search (top-8 scores within 0.03).
+Shortened both titles; "make a delivery" question moved from rank 4 to 2. "Check before saving" still rank 7.
+Next: check chunk sizes, test BGE query prefix, then consider merging tiny chunks or adding keyword search.
+
+### 22. Retrieval settings: no query prefix, TOP_K stays 3
+Status: decided (25 answerable real questions, retrieval only)
+Plain: top1 20, top3 24, top5 24 of 25. Prefix: top1 20, top3 22, top5 25.
+Prefix fixed 2 questions and broke 2, so it stays off. TOP_K 5 gives no gain over 3 on plain.
+Remaining miss ("check before saving") fixed by wording the step the way I ask it, not by tuning search.
+Caveat: questions were written from the documents; re-measure with questions I really type.
