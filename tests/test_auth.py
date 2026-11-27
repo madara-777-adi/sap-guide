@@ -134,3 +134,8 @@ def test_success_resets_failure_count():
     for _ in range(4):
         limiter.record_failure("a")
     assert not limiter.is_blocked("a")
+
+def test_session_endpoint_requires_login(client):
+    assert client.get("/session").status_code == 401
+    login(client)
+    assert client.get("/session").status_code == 200

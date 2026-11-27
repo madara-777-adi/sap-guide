@@ -45,7 +45,7 @@ def call_provider(provider: Provider, messages: list[dict]) -> str:
     client = OpenAI(
         base_url=provider.base_url,
         api_key=os.environ[provider.key_env],
-        timeout=30,
+        timeout=20,
         max_retries=0,
     )
     response = client.chat.completions.create(
@@ -72,7 +72,33 @@ def complete_with_fallback(messages: list[dict], call=call_provider) -> str:
     raise ProvidersUnavailable("All providers failed: " + "; ".join(errors))
 
 
+_CLEAN = {
+    **{ord(c): " " for c in "\u00a0\u2002\u2003\u2007\u2009\u202f"},  # odd spaces -> normal space
+    ord("\u2010"): "-",  # hyphen variants -> "-"
+    ord("\u2011"): "-",
+    ord("\u200b"): None,  # zero-width space -> removed
+}
+
+
+def clean_model_text(text: str) -> str:
+    """Replace look-alike spaces and hyphens that models like to emit.
+
+    Without this, exact checks (the refusal sentence, the supervisor note) can fail
+    on text that looks identical on screen.
+    """
+    return text.translate(_CLEAN)
+
+
+def normalize_refusal(answer: str) -> str:
+    """If the model refused, return exactly the refusal sentence.
+
+    The model sometimes adds a Source line after refusing, or uses a curly apostrophe.
+    """
+    plain = answer.strip().replace("\u2019", "'")
+    return NOT_FOUND if plain.startswith(NOT_FOUND) else answer
+
+
 def generate_answer(question: str, chunks: list[dict], complete=complete_with_fallback) -> str:
     if not chunks:
         return NOT_FOUND  # nothing retrieved, so don't ask a model to improvise
-    return complete(build_messages(question, chunks))
+    return normalize_refusal(clean_model_text(complete(build_messages(question, chunks))))

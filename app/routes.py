@@ -63,6 +63,9 @@ def logout(response: Response):
     response.delete_cookie(COOKIE_NAME, httponly=True, secure=True, samesite="lax")
     return {"status": "ok"}
 
+@router.get("/session")
+def session(_user: str = Depends(require_user)):
+    return {"status": "ok"}
 
 @router.post("/ask")
 def ask(body: AskBody, _user: str = Depends(require_user)):

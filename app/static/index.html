@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAP Guide</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>SAP Guide</h1>
+            <button id="logout" type="button" hidden>Log out</button>
+        </header>
+
+        <section id="login-view">
+            <form id="login-form">
+                <label for="username">Username</label>
+                <input id="username" name="username" autocomplete="username" maxlength="128" required>
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" autocomplete="current-password" maxlength="128"
+                    required>
+                <button type="submit">Log in</button>
+                <p id="login-error" class="error" role="alert"></p>
+            </form>
+        </section>
+
+        <section id="chat-view" hidden>
+            <div id="messages" aria-live="polite"></div>
+            <form id="ask-form">
+                <textarea id="question" rows="2" maxlength="1000" placeholder="Ask about an SAP task"
+                    required></textarea>
+                <button id="ask-button" type="submit">Ask</button>
+            </form>
+        </section>
+    </main>
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
